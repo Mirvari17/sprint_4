@@ -1,5 +1,6 @@
 package samokat.test;
 
+import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -33,6 +34,13 @@ public class MainPageFaqTests {
         new MainPage(driverRule.getDriver())
                 .openPage()
                 .acceptCookies();
+    }
+    @After
+// нужно, чтобы перейти из поп-апа снова на главную страницу
+// с кнопкой "Заказать" и повторить тест с другими параметрами
+    public void openMainPage() {
+        new MainPage(driverRule.getDriver())
+                .openPage();
     }
 
     @Parameterized.Parameters

@@ -95,9 +95,5 @@ public class OrderScooterTests {
                 .clickYesButton();
         new OrderFormStep4PopupSuccess(driverRule.getDriver())
                 .waitForHeader();
-        // нужно, чтобы перейти из поп-апа снова на главную страницу
-        // с кнопкой "Заказать" и повторить тест с другими параметрами
-        new MainPage(driverRule.getDriver())
-                .openPage();
     }
 }
