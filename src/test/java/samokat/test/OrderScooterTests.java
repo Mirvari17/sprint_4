@@ -1,5 +1,6 @@
 package samokat.test;
 
+import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -72,6 +73,11 @@ public class OrderScooterTests {
                         "grey",
                         "Ещё один тестовый комментарий"}
         };
+    }
+
+    @After
+    public void tearDown() {
+        driverRule.getDriver().quit();
     }
 
 
