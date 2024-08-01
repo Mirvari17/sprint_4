@@ -1,9 +1,6 @@
 package samokat.test;
 
-import org.junit.After;
-import org.junit.BeforeClass;
-import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
@@ -23,8 +20,8 @@ public class OrderScooterTests {
     private final String scooterColor;
     private final String commentForCourier;
 
-    @ClassRule
-    public static DriverRule driverRule = new DriverRule();
+    @Rule
+    public DriverRule driverRule = new DriverRule();
 
     public OrderScooterTests(By orderButton, String firstName, String lastName, String address, By selectMetroStation,
                              String phoneNumber, String date, By orderPeriod, String scooterColor,
@@ -41,9 +38,9 @@ public class OrderScooterTests {
         this.commentForCourier = commentForCourier;
     }
 
-    @BeforeClass
+    @Before
     // открыть страницу и принять куки
-    public static void openPageAndAcceptCookies() {
+    public void openPageAndAcceptCookies() {
         new MainPage(driverRule.getDriver())
                 .openPage()
                 .acceptCookies();
